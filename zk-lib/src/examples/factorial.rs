@@ -29,7 +29,7 @@ pub fn test_factorial() {
     builder.register_public_input(cur_target);
 
     let mut pw = PartialWitness::new();
-    pw.set_target(initial, F::ONE);
+    let _ = pw.set_target(initial, F::ONE);
 
     let data = builder.build::<C>();
     let proof = data.prove(pw).unwrap();

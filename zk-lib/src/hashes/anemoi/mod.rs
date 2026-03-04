@@ -16,6 +16,8 @@ use plonky2::{
 
 use self::sbox::ALPHA_INV;
 
+use anyhow::Result;
+
 pub mod anemoi;
 mod mds;
 mod round_constants;
@@ -93,7 +95,7 @@ impl<F: RichField + Extendable<D>, const D: usize> SimpleGenerator<F, D>
         &self,
         witness: &plonky2::iop::witness::PartitionWitness<F>,
         out_buffer: &mut plonky2::iop::generator::GeneratedValues<F>,
-    ) {
+    ) -> Result<()> {
         let base = witness.get_extension_target(self.base);
         let mut current_base = base.clone();
         let mut exp = <F as Extendable<D>>::Extension::from(F::ONE);

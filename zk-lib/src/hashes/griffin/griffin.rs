@@ -282,7 +282,7 @@ impl Griffin {
 
         // Provide initial values
         let mut pw = PartialWitness::new();
-        pw.set_target_arr(&input, &x);
+        let _ = pw.set_target_arr(&input, &x);
 
         let data = builder.build::<C>();
 

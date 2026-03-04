@@ -281,7 +281,7 @@ impl Arion {
         builder.register_public_inputs(&output);
 
         let mut pw = PartialWitness::new();
-        pw.set_target_arr(&input, &x);
+        let _ = pw.set_target_arr(&input, &x);
 
         /* println!("{}", builder.num_gates()); */
 

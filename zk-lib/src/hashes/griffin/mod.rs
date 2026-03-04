@@ -11,6 +11,8 @@ use plonky2::{
     util::serialization::{Read, Write},
 };
 
+use anyhow::Result;
+
 mod constants;
 pub mod griffin;
 mod mds;
@@ -79,7 +81,7 @@ impl<F: RichField + Extendable<D>, const D: usize> SimpleGenerator<F, D>
         &self,
         witness: &plonky2::iop::witness::PartitionWitness<F>,
         out_buffer: &mut plonky2::iop::generator::GeneratedValues<F>,
-    ) {
+    ) -> Result<()> {
         let base = witness.get_extension_target(self.base);
         let mut current_base = base.clone();
         let mut exp = <F as Extendable<D>>::Extension::from(F::ONE);

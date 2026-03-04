@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-plonky2 = "0.1.4"
+plonky2 = "1.1.0"
 rand = "0.8.5"
 anyhow = { version = "1.0.80", default-features = false }
 
